@@ -12,8 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useAuth } from "../contexts/AuthContext";
-
+import { AuthContext } from "../contexts/AuthContext";
 import { Snackbar } from "@mui/material";
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -31,7 +30,7 @@ export default function Authentication() {
 
   const [open, setOpen] = React.useState(false);
 
-  const { handleRegister, handleLogin } = useAuth();
+  const { handleRegister, handleLogin } = React.useContext(AuthContext);
 
   let handleAuth = async () => {
     try {
